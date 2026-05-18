@@ -80,7 +80,7 @@ const categorias = [
   { valor: 'seguranca', label: 'Segurança' },
 ]
 
-function ServicosSection() {
+function ServicosSection({ abrirContato }) {
   const [filtro, setFiltro] = useState('todos')
 
   const servicosFiltrados =
@@ -142,6 +142,7 @@ function ServicosSection() {
               key={servico.titulo}
               {...servico}
               delay={(index % 4) + 1}
+              abrirContato={abrirContato}
             />
           ))}
         </div>

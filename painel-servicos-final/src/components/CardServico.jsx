@@ -37,7 +37,7 @@ const detalhesExtras = {
   },
 }
 
-function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay }) {
+function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, abrirContato }) {
   const [modalAberto, setModalAberto] = useState(false)
   const extras = detalhesExtras[titulo] || { recursos: [], ideal: '' }
 
@@ -319,8 +319,7 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay }) 
                 <button
                   onClick={() => {
                     setModalAberto(false)
-                    // abre o modal de contato geral
-                    document.dispatchEvent(new CustomEvent('abrirContato'))
+                    abrirContato?.()
                   }}
                   className="btn-primary-custom"
                   style={{ flex: 1, textAlign: 'center' }}
