@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import { X, Send, CheckCircle, Mail, User, MessageSquare } from 'lucide-react'
-
-// esse componente serve como seção "sobre" na página
-// e também exibe o modal de contato quando o usuário clica em "Começar agora"
+import { X, Send, CheckCircle, Mail, User, MessageSquare, ArrowRight } from 'lucide-react'
 
 function ContatoSection({ aberto, fechar, abrirContato }) {
   const [form, setForm] = useState({ nome: '', email: '', mensagem: '' })
@@ -15,7 +12,6 @@ function ContatoSection({ aberto, fechar, abrirContato }) {
   }
 
   function handleEnviar() {
-    // validação básica dos campos
     if (!form.nome.trim() || !form.email.trim() || !form.mensagem.trim()) {
       setErro('Por favor, preencha todos os campos antes de enviar.')
       return
@@ -24,7 +20,6 @@ function ContatoSection({ aberto, fechar, abrirContato }) {
       setErro('Digite um e-mail válido.')
       return
     }
-    // simula envio (em produção aqui entraria o fetch pra API)
     setEnviado(true)
     setTimeout(() => {
       setEnviado(false)
@@ -42,104 +37,89 @@ function ContatoSection({ aberto, fechar, abrirContato }) {
 
   return (
     <>
-      {/* seção "sobre" que aparece na página normalmente */}
       <section
         id="sobre"
         style={{
-          background: 'linear-gradient(180deg, var(--dark) 0%, #0b1220 100%)',
+          background: 'var(--bg-light)',
           paddingTop: '80px',
-          paddingBottom: '80px',
+          paddingBottom: '120px',
         }}
       >
         <div className="container">
           <div
             style={{
-              background: 'var(--gradient-card)',
-              border: '1px solid var(--dark-border)',
-              borderRadius: 'var(--radius)',
-              padding: 'clamp(32px, 5vw, 64px)',
-              textAlign: 'center',
+              background: 'var(--gradient-primary)',
+              borderRadius: '40px',
+              padding: 'clamp(40px, 8vw, 80px)',
               position: 'relative',
               overflow: 'hidden',
+              boxShadow: '0 25px 50px -12px rgba(79,70,229,0.25)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              color: '#fff',
             }}
           >
-            {/* efeito de fundo */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '400px',
-                height: '200px',
-                background: 'radial-gradient(ellipse, rgba(15,111,255,0.07) 0%, transparent 70%)',
-                pointerEvents: 'none',
-              }}
-            />
+            {/* Elementos abstratos de fundo */}
+            <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)', borderRadius: '50%' }} />
+            <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
 
-            <span className="badge-custom mb-4 d-inline-block">Pronto pra começar?</span>
-            <h2
-              style={{
-                fontFamily: 'Sora, sans-serif',
-                fontWeight: 800,
-                fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-                color: 'var(--white)',
-                marginBottom: '1rem',
-              }}
-            >
-              Leve sua operação digital{' '}
-              <span
+            <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px' }}>
+              <span style={{ fontSize: '1rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.8, marginBottom: '20px', display: 'block' }}>
+                O próximo passo
+              </span>
+              <h2
                 style={{
-                  background: 'var(--gradient-primary)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                  lineHeight: '1.1',
+                  marginBottom: '1.5rem',
+                  letterSpacing: '-1px'
                 }}
               >
-                para o próximo nível
-              </span>
-            </h2>
-            <p
-              style={{
-                color: 'var(--text-muted)',
-                fontSize: '1.05rem',
-                lineHeight: '1.7',
-                maxWidth: '520px',
-                margin: '0 auto 2.5rem',
-              }}
-            >
-              Fale com a gente e descubra como o NexaHub pode se encaixar no dia a dia da sua empresa.
-              Sem enrolação, sem contrato obrigatório.
-            </p>
-            <div className="d-flex flex-wrap justify-content-center gap-3">
+                Pronto para escalar sua operação digital?
+              </h2>
+              <p style={{ fontSize: '1.2rem', opacity: 0.9, marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
+                Junte-se a milhares de empresas que já transformaram suas operações com a Lumina.
+              </p>
+              
               <button
                 onClick={abrirContato}
-                className="btn-primary-custom d-flex align-items-center gap-2"
-              >
-                <Mail size={16} />
-                Entrar em contato
-              </button>
-              <button
-                onClick={() => {
-                  const el = document.getElementById('servicos')
-                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                style={{
+                  background: '#fff',
+                  color: 'var(--primary)',
+                  border: 'none',
+                  borderRadius: '50px',
+                  padding: '18px 40px',
+                  fontSize: '1.1rem',
+                  fontWeight: 700,
+                  fontFamily: 'Outfit, sans-serif',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                  transition: 'transform 0.2s',
                 }}
-                className="btn-outline-custom"
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
               >
-                Ver serviços
+                Falar com consultor <ArrowRight size={20} />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* modal de contato - aparece quando aberto=true */}
       {aberto && (
         <div
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(0, 0, 0, 0.75)',
-            backdropFilter: 'blur(4px)',
+            background: 'rgba(0, 0, 0, 0.4)',
+            backdropFilter: 'blur(8px)',
             zIndex: 2000,
             display: 'flex',
             alignItems: 'center',
@@ -147,207 +127,185 @@ function ContatoSection({ aberto, fechar, abrirContato }) {
             padding: '20px',
           }}
           onClick={(e) => {
-            // fecha se clicar fora do modal
             if (e.target === e.currentTarget) handleFechar()
           }}
         >
           <div
+            className="fade-in-up"
             style={{
-              background: '#111827',
-              border: '1px solid var(--dark-border)',
-              borderRadius: 'var(--radius)',
-              padding: 'clamp(24px, 4vw, 40px)',
+              background: 'var(--white)',
+              borderRadius: '24px',
+              padding: '0',
               width: '100%',
-              maxWidth: '480px',
+              maxWidth: '900px',
               position: 'relative',
+              overflow: 'hidden',
+              display: 'flex',
+              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
             }}
           >
-            {/* botão fechar */}
-            <button
-              onClick={handleFechar}
-              style={{
-                position: 'absolute',
-                top: '16px',
-                right: '16px',
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid var(--dark-border)',
-                borderRadius: '8px',
-                color: 'var(--text-muted)',
-                cursor: 'pointer',
-                width: '34px',
-                height: '34px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--white)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
-            >
-              <X size={16} />
-            </button>
-
-            {!enviado ? (
-              <>
-                <h3
-                  style={{
-                    fontFamily: 'Sora, sans-serif',
-                    fontWeight: 700,
-                    color: 'var(--white)',
-                    marginBottom: '6px',
-                    paddingRight: '40px',
-                  }}
-                >
-                  Fale com a gente
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '28px' }}>
-                  Preencha o formulário e entraremos em contato em até 24h.
-                </p>
-
-                {/* campo nome */}
-                <div className="mb-3">
-                  <label style={{ color: 'var(--text-light)', fontSize: '0.88rem', marginBottom: '6px', display: 'block' }}>
-                    <User size={13} style={{ marginRight: '6px', opacity: 0.6 }} />
-                    Nome completo
-                  </label>
-                  <input
-                    type="text"
-                    name="nome"
-                    value={form.nome}
-                    onChange={handleChange}
-                    placeholder="Seu nome"
-                    style={{
-                      width: '100%',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid var(--dark-border)',
-                      borderRadius: '10px',
-                      padding: '11px 14px',
-                      color: 'var(--white)',
-                      fontSize: '0.92rem',
-                      outline: 'none',
-                      transition: 'border 0.2s',
-                    }}
-                    onFocus={(e) => (e.target.style.border = '1px solid var(--primary)')}
-                    onBlur={(e) => (e.target.style.border = '1px solid var(--dark-border)')}
-                  />
-                </div>
-
-                {/* campo email */}
-                <div className="mb-3">
-                  <label style={{ color: 'var(--text-light)', fontSize: '0.88rem', marginBottom: '6px', display: 'block' }}>
-                    <Mail size={13} style={{ marginRight: '6px', opacity: 0.6 }} />
-                    E-mail
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="seu@email.com"
-                    style={{
-                      width: '100%',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid var(--dark-border)',
-                      borderRadius: '10px',
-                      padding: '11px 14px',
-                      color: 'var(--white)',
-                      fontSize: '0.92rem',
-                      outline: 'none',
-                      transition: 'border 0.2s',
-                    }}
-                    onFocus={(e) => (e.target.style.border = '1px solid var(--primary)')}
-                    onBlur={(e) => (e.target.style.border = '1px solid var(--dark-border)')}
-                  />
-                </div>
-
-                {/* campo mensagem */}
-                <div className="mb-3">
-                  <label style={{ color: 'var(--text-light)', fontSize: '0.88rem', marginBottom: '6px', display: 'block' }}>
-                    <MessageSquare size={13} style={{ marginRight: '6px', opacity: 0.6 }} />
-                    Mensagem
-                  </label>
-                  <textarea
-                    name="mensagem"
-                    value={form.mensagem}
-                    onChange={handleChange}
-                    placeholder="Como podemos ajudar?"
-                    rows={4}
-                    style={{
-                      width: '100%',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid var(--dark-border)',
-                      borderRadius: '10px',
-                      padding: '11px 14px',
-                      color: 'var(--white)',
-                      fontSize: '0.92rem',
-                      outline: 'none',
-                      resize: 'vertical',
-                      transition: 'border 0.2s',
-                    }}
-                    onFocus={(e) => (e.target.style.border = '1px solid var(--primary)')}
-                    onBlur={(e) => (e.target.style.border = '1px solid var(--dark-border)')}
-                  />
-                </div>
-
-                {/* mensagem de erro */}
-                {erro && (
-                  <p
-                    style={{
-                      color: '#f87171',
-                      fontSize: '0.85rem',
-                      marginBottom: '12px',
-                      padding: '10px 14px',
-                      background: 'rgba(248,113,113,0.08)',
-                      borderRadius: '8px',
-                      border: '1px solid rgba(248,113,113,0.2)',
-                    }}
-                  >
-                    {erro}
-                  </p>
-                )}
-
-                <button
-                  onClick={handleEnviar}
-                  className="btn-primary-custom w-100 d-flex align-items-center justify-content-center gap-2"
-                  style={{ width: '100%' }}
-                >
-                  <Send size={15} />
-                  Enviar mensagem
-                </button>
-              </>
-            ) : (
-              /* tela de confirmação depois de enviar */
-              <div className="text-center py-3">
-                <div
-                  style={{
-                    width: '64px',
-                    height: '64px',
-                    background: 'rgba(52,211,153,0.12)',
-                    border: '1px solid rgba(52,211,153,0.3)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 20px',
-                  }}
-                >
-                  <CheckCircle size={32} color="#34d399" />
-                </div>
-                <h4
-                  style={{
-                    fontFamily: 'Sora, sans-serif',
-                    fontWeight: 700,
-                    color: 'var(--white)',
-                    marginBottom: '8px',
-                  }}
-                >
-                  Mensagem enviada!
-                </h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
-                  Obrigado, <strong style={{ color: 'var(--white)' }}>{form.nome}</strong>. Retornaremos no seu e-mail em breve.
+            {/* Lado Esquerdo do Modal: Informações */}
+            <div style={{ background: 'var(--gradient-primary)', color: '#fff', padding: '40px', width: '40%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} className="d-none d-md-flex">
+              <div>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2rem', marginBottom: '1rem' }}>Lumina.</h3>
+                <p style={{ opacity: 0.8, fontSize: '1rem', lineHeight: 1.6 }}>
+                  Preencha o formulário para falar com um especialista. Descubra como podemos customizar a plataforma para o seu cenário.
                 </p>
               </div>
-            )}
+              <div>
+                <div className="d-flex align-items-center gap-3 mb-3">
+                  <Mail size={20} opacity={0.8} /> <span>contato@lumina.com</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Lado Direito do Modal: Formulário */}
+            <div style={{ padding: '40px', width: '100%', flex: 1, position: 'relative' }}>
+              <button
+                onClick={handleFechar}
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px',
+                  background: 'var(--bg-subtle)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  color: 'var(--text-muted)',
+                  cursor: 'pointer',
+                  width: '36px',
+                  height: '36px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'background 0.2s',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = '#e2e8f0')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--bg-subtle)')}
+              >
+                <X size={18} />
+              </button>
+
+              {!enviado ? (
+                <>
+                  <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, color: 'var(--text-dark)', fontSize: '1.8rem', marginBottom: '32px' }}>
+                    Enviar mensagem
+                  </h3>
+
+                  <div className="mb-4">
+                    <label style={{ color: 'var(--text-dark)', fontSize: '0.9rem', fontWeight: 600, marginBottom: '8px', display: 'block' }}>Nome completo</label>
+                    <input
+                      type="text"
+                      name="nome"
+                      value={form.nome}
+                      onChange={handleChange}
+                      placeholder="Como gosta de ser chamado?"
+                      style={{
+                        width: '100%',
+                        background: 'var(--bg-light)',
+                        border: '1px solid var(--dark-border)',
+                        borderRadius: '12px',
+                        padding: '14px 16px',
+                        color: 'var(--text-dark)',
+                        fontSize: '1rem',
+                        outline: 'none',
+                        transition: 'border 0.2s',
+                      }}
+                      onFocus={(e) => (e.target.style.border = '1px solid var(--primary)')}
+                      onBlur={(e) => (e.target.style.border = '1px solid var(--dark-border)')}
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <label style={{ color: 'var(--text-dark)', fontSize: '0.9rem', fontWeight: 600, marginBottom: '8px', display: 'block' }}>E-mail profissional</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="seu@email.com"
+                      style={{
+                        width: '100%',
+                        background: 'var(--bg-light)',
+                        border: '1px solid var(--dark-border)',
+                        borderRadius: '12px',
+                        padding: '14px 16px',
+                        color: 'var(--text-dark)',
+                        fontSize: '1rem',
+                        outline: 'none',
+                        transition: 'border 0.2s',
+                      }}
+                      onFocus={(e) => (e.target.style.border = '1px solid var(--primary)')}
+                      onBlur={(e) => (e.target.style.border = '1px solid var(--dark-border)')}
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <label style={{ color: 'var(--text-dark)', fontSize: '0.9rem', fontWeight: 600, marginBottom: '8px', display: 'block' }}>Sua mensagem</label>
+                    <textarea
+                      name="mensagem"
+                      value={form.mensagem}
+                      onChange={handleChange}
+                      placeholder="Conte um pouco sobre sua necessidade..."
+                      rows={3}
+                      style={{
+                        width: '100%',
+                        background: 'var(--bg-light)',
+                        border: '1px solid var(--dark-border)',
+                        borderRadius: '12px',
+                        padding: '14px 16px',
+                        color: 'var(--text-dark)',
+                        fontSize: '1rem',
+                        outline: 'none',
+                        resize: 'vertical',
+                        transition: 'border 0.2s',
+                      }}
+                      onFocus={(e) => (e.target.style.border = '1px solid var(--primary)')}
+                      onBlur={(e) => (e.target.style.border = '1px solid var(--dark-border)')}
+                    />
+                  </div>
+
+                  {erro && (
+                    <p style={{ color: '#ef4444', fontSize: '0.9rem', marginBottom: '16px', fontWeight: 500 }}>
+                      {erro}
+                    </p>
+                  )}
+
+                  <button
+                    onClick={handleEnviar}
+                    style={{
+                      background: 'var(--text-dark)',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '12px',
+                      padding: '16px',
+                      width: '100%',
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      fontFamily: 'Outfit, sans-serif'
+                    }}
+                  >
+                    Enviar solicitação
+                  </button>
+                </>
+              ) : (
+                <div className="text-center py-5 d-flex flex-column justify-content-center h-100">
+                  <div style={{ margin: '0 auto 20px' }}>
+                    <CheckCircle size={64} color="var(--primary)" />
+                  </div>
+                  <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2rem', color: 'var(--text-dark)', marginBottom: '16px' }}>
+                    Tudo certo!
+                  </h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
+                    Recebemos sua mensagem, <strong style={{ color: 'var(--text-dark)' }}>{form.nome}</strong>. Nossa equipe entrará em contato em breve.
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
