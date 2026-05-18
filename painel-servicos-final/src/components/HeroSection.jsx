@@ -19,7 +19,7 @@ function HeroSection({ abrirContato }) {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        paddingTop: '100px',
+        paddingTop: '120px',
         paddingBottom: '80px',
         position: 'relative',
         overflow: 'hidden',
@@ -29,194 +29,124 @@ function HeroSection({ abrirContato }) {
       <div
         style={{
           position: 'absolute',
-          top: '15%',
-          left: '-5%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(15,111,255,0.12) 0%, transparent 70%)',
-          borderRadius: '50%',
+          top: '0%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '800px',
+          height: '400px',
+          background: 'radial-gradient(ellipse, rgba(79,70,229,0.1) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
       <div
         style={{
           position: 'absolute',
-          bottom: '10%',
-          right: '-8%',
-          width: '400px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(0,224,198,0.10) 0%, transparent 70%)',
+          bottom: '-10%',
+          left: '20%',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%)',
           borderRadius: '50%',
           pointerEvents: 'none',
         }}
       />
 
-      <div className="container">
-        <div className="row align-items-center g-5">
-          {/* lado esquerdo - texto */}
-          <div className="col-lg-6">
+      <div className="container position-relative">
+        <div className="row justify-content-center text-center">
+          <div className="col-lg-10">
             <div className="fade-in-up">
-              <span className="badge-custom mb-4 d-inline-block">
-                <Sparkles size={12} style={{ marginRight: '6px' }} />
-                Plataforma de Serviços Digitais
+              <span className="badge-custom mb-4 d-inline-flex align-items-center justify-content-center">
+                <Sparkles size={14} style={{ marginRight: '8px' }} />
+                Nova Plataforma Lumina
               </span>
               <h1
                 style={{
-                  fontFamily: 'Sora, sans-serif',
+                  fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
-                  fontSize: 'clamp(2.4rem, 5vw, 3.6rem)',
-                  lineHeight: '1.1',
+                  fontSize: 'clamp(2.8rem, 6vw, 4.5rem)',
+                  lineHeight: '1.05',
                   marginBottom: '1.5rem',
-                  color: 'var(--white)',
+                  color: 'var(--text-dark)',
+                  letterSpacing: '-1px',
                 }}
               >
-                Gerencie seus{' '}
+                Gerencie todos os seus{' '}
                 <span
                   style={{
                     background: 'var(--gradient-primary)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
+                    display: 'inline-block',
                   }}
                 >
                   serviços digitais
                 </span>{' '}
-                em um só lugar
+                em um único ecossistema
               </h1>
               <p
                 style={{
                   color: 'var(--text-muted)',
-                  fontSize: '1.15rem',
-                  lineHeight: '1.75',
-                  marginBottom: '2.5rem',
-                  maxWidth: '480px',
+                  fontSize: '1.2rem',
+                  lineHeight: '1.6',
+                  marginBottom: '3rem',
+                  maxWidth: '680px',
+                  margin: '0 auto 3rem',
                 }}
               >
-                O NexaHub centraliza todas as suas ferramentas, automações e integrações digitais
-                numa interface moderna e fácil de usar. Mais produtividade, menos dor de cabeça.
+                Chega de dezenas de abas abertas. A Lumina centraliza suas ferramentas, automações e métricas
+                em uma interface impossivelmente simples e incrivelmente rápida.
               </p>
 
-              <div className="d-flex flex-wrap gap-3 align-items-center">
-                {/* botão principal - rola até os cards de serviço */}
+              <div className="d-flex flex-wrap justify-content-center gap-3 mb-5">
                 <button
                   onClick={rolarServicos}
-                  className="btn-primary-custom d-flex align-items-center gap-2"
+                  className="btn-primary-custom d-flex align-items-center justify-content-center gap-2"
+                  style={{ padding: '14px 36px', fontSize: '1.05rem' }}
                 >
-                  Explorar serviços
-                  <ArrowRight size={16} />
+                  Explorar plataforma
+                  <ArrowRight size={18} />
                 </button>
-
-                {/* botão secundário - rola até seção sobre/contato */}
-                <button onClick={rolarSobre} className="btn-outline-custom">
-                  Saiba mais
+                <button 
+                  onClick={rolarSobre} 
+                  className="btn-outline-custom"
+                  style={{ padding: '14px 36px', fontSize: '1.05rem' }}
+                >
+                  Entenda como funciona
                 </button>
               </div>
 
-              {/* mini estatísticas */}
-              <div className="d-flex flex-wrap gap-4 mt-5">
+              {/* mini estatísticas centralizadas */}
+              <div 
+                className="d-flex flex-wrap justify-content-center gap-4 gap-md-5 mt-5 fade-in-up delay-2"
+                style={{ 
+                  borderTop: '1px solid rgba(0,0,0,0.05)', 
+                  paddingTop: '2.5rem' 
+                }}
+              >
                 {[
                   { label: 'Empresas ativas', value: '4.200+' },
-                  { label: 'Integrações', value: '150+' },
-                  { label: 'Uptime garantido', value: '99.9%' },
+                  { label: 'Integrações nativas', value: '150+' },
+                  { label: 'Uptime garantido', value: '99.99%' },
+                  { label: 'Suporte humanizado', value: '24/7' },
                 ].map((stat) => (
-                  <div key={stat.label}>
+                  <div key={stat.label} style={{ minWidth: '120px' }}>
                     <div
                       style={{
-                        fontFamily: 'Sora, sans-serif',
+                        fontFamily: 'Outfit, sans-serif',
                         fontWeight: 800,
-                        fontSize: '1.6rem',
-                        color: 'var(--white)',
+                        fontSize: '1.8rem',
+                        color: 'var(--primary)',
                         lineHeight: 1,
+                        marginBottom: '8px'
                       }}
                     >
                       {stat.value}
                     </div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '4px' }}>
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 500 }}>
                       {stat.label}
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-
-          {/* lado direito - card visual animado (só aparece em telas grandes) */}
-          <div className="col-lg-6 d-none d-lg-flex justify-content-center">
-            <div
-              className="fade-in-up delay-3"
-              style={{ position: 'relative', width: '100%', maxWidth: '440px' }}
-            >
-              <div
-                style={{
-                  background: 'var(--gradient-card)',
-                  border: '1px solid var(--dark-border)',
-                  borderRadius: 'var(--radius)',
-                  padding: '32px',
-                  boxShadow: 'var(--shadow-hover)',
-                  animation: 'float 5s ease-in-out infinite',
-                }}
-              >
-                <div className="d-flex align-items-center justify-content-between mb-4">
-                  <span style={{ fontFamily: 'Sora, sans-serif', fontWeight: 700, color: 'var(--white)' }}>
-                    Dashboard Overview
-                  </span>
-                  <span className="badge-custom" style={{ fontSize: '0.7rem' }}>Live</span>
-                </div>
-
-                {[
-                  { label: 'Automações ativas', val: 87, color: 'var(--primary)' },
-                  { label: 'APIs conectadas', val: 62, color: 'var(--accent)' },
-                  { label: 'Relatórios gerados', val: 94, color: '#a78bfa' },
-                ].map((item) => (
-                  <div key={item.label} className="mb-3">
-                    <div className="d-flex justify-content-between mb-1">
-                      <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{item.label}</span>
-                      <span style={{ color: 'var(--white)', fontSize: '0.85rem', fontWeight: 600 }}>{item.val}%</span>
-                    </div>
-                    <div style={{ background: 'var(--dark)', borderRadius: '4px', height: '6px' }}>
-                      <div style={{ width: `${item.val}%`, height: '100%', background: item.color, borderRadius: '4px' }} />
-                    </div>
-                  </div>
-                ))}
-
-                <div className="mt-4 d-flex gap-3" style={{ borderTop: '1px solid var(--dark-border)', paddingTop: '1rem' }}>
-                  {[TrendingUp, Shield].map((Icon, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        background: 'rgba(15,111,255,0.1)',
-                        border: '1px solid rgba(15,111,255,0.2)',
-                        borderRadius: '10px',
-                        padding: '10px 14px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                      }}
-                    >
-                      <Icon size={16} color="var(--primary)" />
-                      <span style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>
-                        {i === 0 ? 'Performance +12%' : 'Seguro & estável'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '-20px',
-                  right: '-20px',
-                  background: 'var(--accent)',
-                  color: '#0a0f1e',
-                  fontFamily: 'Sora, sans-serif',
-                  fontWeight: 800,
-                  fontSize: '0.8rem',
-                  padding: '8px 14px',
-                  borderRadius: '50px',
-                  animation: 'pulse-glow 3s ease-in-out infinite',
-                }}
-              >
-                ✓ Tudo integrado
               </div>
             </div>
           </div>
