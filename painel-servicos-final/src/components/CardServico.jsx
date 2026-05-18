@@ -44,123 +44,125 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
   return (
     <>
       {/* card principal */}
-      <div className={`col-sm-6 col-lg-3 fade-in-up delay-${delay}`}>
+      <div className={`col-md-6 fade-in-up delay-${delay}`}>
         <div
           style={{
             background: 'var(--gradient-card)',
             border: '1px solid var(--dark-border)',
             borderRadius: 'var(--radius)',
-            padding: '28px 24px',
+            padding: '32px 28px',
             height: '100%',
             transition: 'all 0.3s ease',
             cursor: 'pointer',
             position: 'relative',
             overflow: 'hidden',
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '24px',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.border = `1px solid ${corIcone}55`
-            e.currentTarget.style.boxShadow = `0 8px 32px ${corIcone}22`
+            e.currentTarget.style.boxShadow = `0 12px 40px ${corIcone}22`
             e.currentTarget.style.transform = 'translateY(-4px)'
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.border = '1px solid var(--dark-border)'
-            e.currentTarget.style.boxShadow = 'none'
+            e.currentTarget.style.boxShadow = 'var(--shadow-card)'
             e.currentTarget.style.transform = 'translateY(0)'
           }}
         >
-          {/* linha colorida no topo */}
+          {/* borda lateral colorida */}
           <div
             style={{
               position: 'absolute',
-              top: 0, left: 0, right: 0,
-              height: '2px',
-              background: `linear-gradient(90deg, transparent, ${corIcone}, transparent)`,
+              top: 0, left: 0, bottom: 0,
+              width: '4px',
+              background: `linear-gradient(180deg, ${corIcone}, transparent)`,
             }}
           />
 
-          {/* ícone */}
+          {/* ícone na esquerda */}
           <div
             style={{
-              width: '50px', height: '50px',
+              width: '64px', height: '64px',
               background: `${corIcone}18`,
               border: `1px solid ${corIcone}35`,
-              borderRadius: 'var(--radius-sm)',
+              borderRadius: '16px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              marginBottom: '18px',
+              flexShrink: 0,
             }}
           >
-            <Icone size={22} color={corIcone} />
+            <Icone size={28} color={corIcone} />
           </div>
 
-          {/* tag */}
-          <span
-            style={{
-              background: `${corIcone}15`,
-              color: corIcone,
-              fontSize: '0.68rem',
-              fontWeight: 700,
-              padding: '3px 10px',
-              borderRadius: '50px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-              fontFamily: 'Sora, sans-serif',
-              display: 'inline-block',
-              marginBottom: '12px',
-            }}
-          >
-            {tag}
-          </span>
+          {/* conteúdo na direita */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <div className="d-flex justify-content-between align-items-start mb-2">
+              <h3
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '1.25rem',
+                  color: 'var(--text-dark)',
+                  margin: 0,
+                }}
+              >
+                {titulo}
+              </h3>
+              
+              <span
+                style={{
+                  background: `${corIcone}15`,
+                  color: corIcone,
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  padding: '4px 12px',
+                  borderRadius: '50px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  fontFamily: 'Outfit, sans-serif',
+                  flexShrink: 0,
+                }}
+              >
+                {tag}
+              </span>
+            </div>
 
-          {/* título */}
-          <h3
-            style={{
-              fontFamily: 'Sora, sans-serif',
-              fontWeight: 700,
-              fontSize: '1.05rem',
-              color: 'var(--white)',
-              marginBottom: '10px',
-            }}
-          >
-            {titulo}
-          </h3>
+            <p
+              style={{
+                color: 'var(--text-muted)',
+                fontSize: '0.95rem',
+                lineHeight: '1.6',
+                marginBottom: '20px',
+                flex: 1,
+              }}
+            >
+              {descricao}
+            </p>
 
-          {/* descrição */}
-          <p
-            style={{
-              color: 'var(--text-muted)',
-              fontSize: '0.88rem',
-              lineHeight: '1.65',
-              marginBottom: '20px',
-              flex: 1,
-            }}
-          >
-            {descricao}
-          </p>
-
-          {/* botão "Ver detalhes" - agora funciona de verdade */}
-          <button
-            onClick={() => setModalAberto(true)}
-            style={{
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              color: corIcone,
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontFamily: 'Sora, sans-serif',
-              transition: 'gap 0.2s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.gap = '10px')}
-            onMouseLeave={(e) => (e.currentTarget.style.gap = '6px')}
-          >
-            Ver detalhes <ArrowRight size={14} />
-          </button>
+            <button
+              onClick={() => setModalAberto(true)}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+                color: corIcone,
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontFamily: 'Outfit, sans-serif',
+                transition: 'gap 0.2s',
+                alignSelf: 'flex-start',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.gap = '10px')}
+              onMouseLeave={(e) => (e.currentTarget.style.gap = '6px')}
+            >
+              Ver detalhes <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -182,7 +184,7 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
         >
           <div
             style={{
-              background: '#111827',
+              background: 'var(--white)',
               border: '1px solid var(--dark-border)',
               borderRadius: 'var(--radius)',
               width: '100%',
@@ -209,7 +211,7 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
                   width: '34px', height: '34px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--white)')}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-dark)')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
               >
                 <X size={16} />
@@ -240,7 +242,7 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
                       borderRadius: '50px',
                       textTransform: 'uppercase',
                       letterSpacing: '0.5px',
-                      fontFamily: 'Sora, sans-serif',
+                      fontFamily: 'Outfit, sans-serif',
                       display: 'inline-block',
                       marginBottom: '6px',
                     }}
@@ -249,10 +251,10 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
                   </span>
                   <h3
                     style={{
-                      fontFamily: 'Sora, sans-serif',
+                      fontFamily: 'Outfit, sans-serif',
                       fontWeight: 700,
                       fontSize: '1.2rem',
-                      color: 'var(--white)',
+                      color: 'var(--text-dark)',
                       margin: 0,
                     }}
                   >
@@ -278,9 +280,9 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
               {/* lista de recursos */}
               <p
                 style={{
-                  fontFamily: 'Sora, sans-serif',
+                  fontFamily: 'Outfit, sans-serif',
                   fontWeight: 700,
-                  color: 'var(--white)',
+                  color: 'var(--text-dark)',
                   fontSize: '0.9rem',
                   marginBottom: '14px',
                 }}
@@ -291,7 +293,7 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
                 {extras.recursos.map((item) => (
                   <div key={item} className="d-flex align-items-start gap-2 mb-2">
                     <CheckCircle size={16} color={corIcone} style={{ marginTop: '2px', flexShrink: 0 }} />
-                    <span style={{ color: 'var(--text-light)', fontSize: '0.88rem' }}>{item}</span>
+                    <span style={{ color: 'var(--text-dark)', fontSize: '0.88rem' }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -306,10 +308,10 @@ function CardServico({ icone: Icone, titulo, descricao, tag, corIcone, delay, ab
                   marginBottom: '24px',
                 }}
               >
-                <span style={{ color: corIcone, fontSize: '0.8rem', fontWeight: 700, fontFamily: 'Sora, sans-serif' }}>
+                <span style={{ color: corIcone, fontSize: '0.8rem', fontWeight: 700, fontFamily: 'Outfit, sans-serif' }}>
                   IDEAL PARA
                 </span>
-                <p style={{ color: 'var(--text-light)', fontSize: '0.88rem', margin: '4px 0 0' }}>
+                <p style={{ color: 'var(--text-dark)', fontSize: '0.88rem', margin: '4px 0 0' }}>
                   {extras.ideal}
                 </p>
               </div>
