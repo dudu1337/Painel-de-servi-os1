@@ -1,4 +1,4 @@
-import { Zap, Menu, X } from 'lucide-react'
+import { Hexagon, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 // cada item do menu tem um label e o id da seção que ele vai rolar até
@@ -27,7 +27,7 @@ function Header({ abrirContato }) {
   return (
     <nav
       style={{
-        background: 'rgba(10, 15, 30, 0.9)',
+        background: 'rgba(255, 255, 255, 0.85)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--dark-border)',
         position: 'fixed',
@@ -61,18 +61,18 @@ function Header({ abrirContato }) {
                 alignItems: 'center',
               }}
             >
-              <Zap size={18} color="#fff" fill="#fff" />
+              <Hexagon size={18} color="#fff" fill="rgba(255,255,255,0.2)" />
             </div>
             <span
               style={{
-                fontFamily: 'Sora, sans-serif',
+                fontFamily: 'Outfit, sans-serif',
                 fontWeight: 800,
                 fontSize: '1.25rem',
-                color: 'var(--white)',
+                color: 'var(--text-dark)',
                 letterSpacing: '-0.5px',
               }}
             >
-              Nexa<span style={{ color: 'var(--accent)' }}>Hub</span>
+              Lumina
             </span>
           </button>
 
@@ -92,7 +92,7 @@ function Header({ abrirContato }) {
                   transition: 'color 0.2s',
                   padding: '4px 0',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--white)')}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-dark)')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
               >
                 {item.label}
@@ -118,7 +118,7 @@ function Header({ abrirContato }) {
             style={{
               background: 'none',
               border: 'none',
-              color: 'var(--white)',
+              color: 'var(--text-dark)',
               cursor: 'pointer',
               padding: '4px',
             }}
@@ -127,11 +127,10 @@ function Header({ abrirContato }) {
           </button>
         </div>
 
-        {/* Menu mobile */}
         {menuOpen && (
           <div
             className="d-md-none mt-3 pb-2"
-            style={{ borderTop: '1px solid var(--dark-border)', paddingTop: '1rem' }}
+            style={{ borderTop: '1px solid var(--dark-border)', paddingTop: '1rem', background: 'rgba(255,255,255,0.95)', padding: '15px', borderRadius: '12px' }}
           >
             {itensMenu.map((item) => (
               <button
@@ -143,7 +142,7 @@ function Header({ abrirContato }) {
                   textAlign: 'left',
                   background: 'none',
                   border: 'none',
-                  color: 'var(--text-muted)',
+                  color: 'var(--text-dark)',
                   padding: '10px 0',
                   fontWeight: 500,
                   fontSize: '1rem',
@@ -155,7 +154,7 @@ function Header({ abrirContato }) {
             ))}
             <button
               onClick={() => { abrirContato(); setMenuOpen(false) }}
-              className="btn-primary-custom mt-2"
+              className="btn-primary-custom mt-3 w-100"
               style={{ fontSize: '0.9rem', padding: '10px 22px' }}
             >
               Começar agora
