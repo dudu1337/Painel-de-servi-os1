@@ -1,80 +1,61 @@
-# NexaHub – Painel de Serviços Digitais
+# NexaHub - Painel de Serviços Digitais
 
-> Projeto desenvolvido para a disciplina **Criatividade e Inovação** — Atividade de Design System com React + Bootstrap.
+Projeto desenvolvido para a atividade de React com Vite, componentização, responsividade e uso de Design System.
 
----
+## Dupla
 
-## 👥 Dupla
+- Kaike Vitor
+- Luís Eduardo
 
-- **Kaike Vitor**
-- **Luís Eduardo**
+## Descrição
 
----
+O **NexaHub** é uma plataforma fictícia de serviços digitais para empresas que desejam centralizar operações, integrações, automações e indicadores em uma interface moderna.
 
-## 📋 Descrição do projeto
+A aplicação apresenta um painel responsivo com banner principal, cards de serviços filtráveis, seção de métricas, diferenciais da solução, modal de contato e footer com newsletter.
 
-O **NexaHub** é uma plataforma fictícia de serviços digitais criada como trabalho avaliativo. A interface representa um painel moderno voltado a empresas que precisam centralizar suas operações digitais em um único lugar.
+## Tecnologias
 
-A aplicação conta com uma página de apresentação completa, exibindo serviços disponíveis, métricas da plataforma e diferenciais competitivos — tudo dentro de uma identidade visual coesa e responsiva.
+- React
+- Vite
+- Bootstrap 5
+- Lucide React
+- CSS personalizado com variáveis de Design System
 
----
+## Estrutura
 
-## 🛠 Tecnologias utilizadas
-
-| Tecnologia | Função |
-|---|---|
-| [React](https://react.dev/) | Biblioteca principal de UI |
-| [Vite](https://vitejs.dev/) | Bundler e ambiente de desenvolvimento |
-| [Bootstrap 5](https://getbootstrap.com/) | Grid, layout e responsividade (Trilha 1) |
-| [Lucide React](https://lucide.dev/) | Biblioteca de ícones |
-| CSS personalizado | Design System próprio com variáveis CSS |
-
----
-
-## 📁 Estrutura do projeto
-
-```
-painel-servicos/
+```text
+painel-servicos-final/
 ├── public/
+│   └── assets/
+│       └── nexahub-mark.svg
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx            # Navbar fixa com menu responsivo e scroll suave
-│   │   ├── HeroSection.jsx       # Banner principal com botões funcionando
-│   │   ├── CardServico.jsx       # Card reutilizável (dados via props)
-│   │   ├── ServicosSection.jsx   # Área de cards com filtro por categoria
-│   │   ├── DiferenciaisSection.jsx  # Métricas e diferenciais
-│   │   ├── ContatoSection.jsx    # Seção CTA + modal de contato funcional (5º componente)
-│   │   └── Footer.jsx            # Rodapé com newsletter funcional e links
-│   ├── App.jsx                   # Componente raiz com estado do modal
-│   ├── main.jsx                  # Ponto de entrada
-│   └── index.css                 # Design tokens e estilos globais
+│   │   ├── Header.jsx
+│   │   ├── HeroSection.jsx
+│   │   ├── CardServico.jsx
+│   │   ├── ServicosSection.jsx
+│   │   ├── DiferenciaisSection.jsx
+│   │   ├── ContatoSection.jsx
+│   │   └── Footer.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 ├── index.html
 ├── package.json
-├── vite.config.js
-└── README.md
+└── vite.config.js
 ```
 
----
-
-## ⚙️ Como executar o projeto
-
-**Pré-requisito:** Node.js instalado (versão 18 ou superior recomendada).
+## Como executar
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/seu-usuario/painel-servicos-digitais.git
-
-# 2. Acesse a pasta do projeto
-cd painel-servicos-digitais
-
-# 3. Instale as dependências
 npm install
-
-# 4. Inicie o servidor de desenvolvimento
 npm run dev
+```
 
-# 5. Acesse no navegador
-# http://localhost:5173
+Depois acesse o endereço exibido no terminal, normalmente:
+
+```text
+http://localhost:5173
 ```
 
 Para gerar a versão de produção:
@@ -83,22 +64,15 @@ Para gerar a versão de produção:
 npm run build
 ```
 
----
+## Requisitos atendidos
 
-## ✅ Requisitos atendidos
-
-- [x] Projeto criado com **Vite + React**
-- [x] 5 componentes próprios: `Header`, `HeroSection`, `CardServico`, `ServicosSection`, `DiferenciaisSection`, `ContatoSection`, `Footer`
-- [x] Uso de **Bootstrap 5** para grid e responsividade (Trilha 1)
-- [x] Ícones com **Lucide React**
-- [x] Interface responsiva (mobile, tablet e desktop)
-- [x] `CardServico` recebe dados via **props** (ícone, título, descrição, tag, cor, delay)
-- [x] Design System próprio com variáveis CSS
-- [x] Mínimo de 4 cards (8 implementados com filtro por categoria)
-- [x] **Todos os botões funcionando:** scroll suave, modal de contato, filtro de cards, newsletter com validação
-- [x] Modal de contato com validação de campos e feedback visual
-- [x] Newsletter com confirmação de inscrição
-- [x] Seção de destaque com métricas e diferenciais
-- [x] Header com navegação e botão de ação
-- [x] Footer com links, redes sociais e newsletter
-- [x] `ContatoSection` como 5º componente próprio com estado interno
+- Projeto em React com Vite.
+- Componentes próprios: `Header`, `HeroSection`, `CardServico`, `ServicosSection`, `DiferenciaisSection`, `ContatoSection` e `Footer`.
+- Uso de Bootstrap para grid, layout e responsividade.
+- Uso de ícones com Lucide React.
+- Conteúdo dinâmico via props no componente `CardServico`.
+- No mínimo 4 cards de serviços, com filtros por categoria.
+- Seção de destaque com métricas e diferenciais.
+- Modal de contato com validação simples.
+- Footer com links e newsletter.
+- Estilização personalizada com tokens visuais no CSS.
