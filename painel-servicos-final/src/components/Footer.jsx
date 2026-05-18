@@ -27,7 +27,7 @@ function Footer({ abrirContato }) {
   const links = {
     Produto: [
       { label: 'Serviços', acao: () => rolarAte('servicos') },
-      { label: 'Recursos', acao: () => rolarAte('recursos') },
+      { label: 'Recursos', acao: () => rolarAte('servicos') },
       { label: 'API', acao: abrirContato },
       { label: 'Segurança', acao: () => rolarAte('metricas') },
     ],

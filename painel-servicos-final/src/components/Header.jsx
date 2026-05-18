@@ -4,7 +4,7 @@ import { useState } from 'react'
 // cada item do menu tem um label e o id da seção que ele vai rolar até
 const itensMenu = [
   { label: 'Serviços', alvo: 'servicos' },
-  { label: 'Recursos', alvo: 'recursos' },
+  { label: 'Recursos', alvo: 'servicos' },
   { label: 'Métricas', alvo: 'metricas' },
   { label: 'Sobre', alvo: 'sobre' },
 ]
