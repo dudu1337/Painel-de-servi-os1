@@ -1,27 +1,26 @@
-import { CheckCircle, TrendingUp, HeartHandshake, Gauge } from 'lucide-react'
+import { CheckCircle, TrendingUp, HeartHandshake, Gauge, Zap } from 'lucide-react'
 
 const metricas = [
-  { valor: '4.200+', label: 'Empresas confiam no NexaHub' },
-  { valor: '150+', label: 'Integrações disponíveis' },
-  { valor: '99.9%', label: 'Disponibilidade garantida' },
-  { valor: '< 2s', label: 'Tempo de resposta médio' },
+  { valor: '4.200+', label: 'Empresas confiam' },
+  { valor: '150+', label: 'Integrações' },
+  { valor: '99.9%', label: 'Uptime' },
 ]
 
 const diferenciais = [
   {
     icone: TrendingUp,
     titulo: 'Escalabilidade real',
-    descricao: 'Cresce junto com seu negócio, de startups a grandes empresas.',
+    descricao: 'Cresce junto com seu negócio, de startups a grandes corporações.',
   },
   {
     icone: HeartHandshake,
-    titulo: 'Suporte humano',
-    descricao: 'Time de especialistas disponível 24h para resolver qualquer problema.',
+    titulo: 'Suporte humanizado',
+    descricao: 'Especialistas disponíveis 24h para resolver qualquer problema.',
   },
   {
     icone: Gauge,
     titulo: 'Alta performance',
-    descricao: 'Infraestrutura distribuída globalmente para latência mínima.',
+    descricao: 'Infraestrutura distribuída para latência mínima e velocidade máxima.',
   },
 ]
 
@@ -30,147 +29,178 @@ function DiferenciaisSection() {
     <section
       id="metricas"
       style={{
-        background: 'linear-gradient(180deg, var(--dark) 0%, #0d1a3a 50%, var(--dark) 100%)',
+        background: 'var(--bg-subtle)',
+        paddingTop: '100px',
+        paddingBottom: '100px',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Glow central */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '600px',
-          height: '300px',
-          background: 'radial-gradient(ellipse, rgba(15,111,255,0.08) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div className="container position-relative">
-        {/* Métricas */}
-        <div className="text-center mb-5">
-          <span className="badge-custom mb-3 d-inline-block">Números reais</span>
-          <h2 className="section-title text-white">
-            Resultados que{' '}
-            <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              comprovam
+      <div className="container">
+        <div className="text-center mb-5 fade-in-up">
+          <span className="badge-custom mb-3 d-inline-flex align-items-center justify-content-center">
+            <Zap size={14} style={{ marginRight: '6px' }} /> Diferenciais
+          </span>
+          <h2
+            style={{
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 800,
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              color: 'var(--text-dark)',
+              marginBottom: '1rem',
+              letterSpacing: '-0.5px'
+            }}
+          >
+            Tudo o que você precisa, <br />
+            <span
+              style={{
+                background: 'var(--gradient-primary)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              sem a complexidade.
             </span>
           </h2>
         </div>
 
-        <div className="row g-4 mb-5">
-          {metricas.map((m) => (
-            <div key={m.label} className="col-6 col-md-3 text-center">
+        {/* Bento Box Grid */}
+        <div className="row g-4">
+          
+          {/* Box 1: Texto e Features (Lado Esquerdo Superior) */}
+          <div className="col-lg-4 fade-in-up delay-1">
+            <div
+              style={{
+                background: 'var(--gradient-primary)',
+                borderRadius: '32px',
+                padding: '40px',
+                height: '100%',
+                color: '#fff',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                boxShadow: '0 20px 40px rgba(79,70,229,0.2)'
+              }}
+            >
+              <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.8rem', marginBottom: '16px' }}>
+                Por que a Lumina?
+              </h3>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '24px' }}>
+                Não somos só mais uma ferramenta. A Lumina foi construída para ser o centro nervoso das suas operações.
+              </p>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  'Sem contratos abusivos',
+                  'LGPD totalmente garantida',
+                  'Updates em tempo real',
+                ].map((item) => (
+                  <li key={item} className="d-flex align-items-center gap-2">
+                    <CheckCircle size={18} color="#fff" style={{ opacity: 0.9 }} />
+                    <span style={{ fontSize: '0.95rem', fontWeight: 500 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Box 2: Métricas (Lado Direito Superior) */}
+          <div className="col-lg-8 fade-in-up delay-2">
+            <div
+              style={{
+                background: 'var(--white)',
+                borderRadius: '32px',
+                padding: '40px',
+                height: '100%',
+                border: '1px solid var(--dark-border)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                boxShadow: 'var(--shadow-card)'
+              }}
+            >
+              <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.5rem', color: 'var(--text-dark)', marginBottom: '32px' }}>
+                Números que falam por si
+              </h3>
+              <div className="row g-4">
+                {metricas.map((m) => (
+                  <div key={m.label} className="col-md-4">
+                    <div
+                      style={{
+                        fontFamily: 'Outfit, sans-serif',
+                        fontWeight: 800,
+                        fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+                        background: 'var(--gradient-primary)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        lineHeight: 1,
+                        marginBottom: '8px',
+                        letterSpacing: '-1px'
+                      }}
+                    >
+                      {m.valor}
+                    </div>
+                    <div style={{ color: 'var(--text-muted)', fontSize: '1rem', fontWeight: 500 }}>{m.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Boxes Inferiores: Diferenciais */}
+          {diferenciais.map(({ icone: Icone, titulo, descricao }, idx) => (
+            <div key={titulo} className={`col-lg-4 fade-in-up delay-${idx + 1}`}>
               <div
                 style={{
-                  background: 'var(--gradient-card)',
+                  background: 'var(--white)',
+                  borderRadius: '32px',
+                  padding: '36px',
+                  height: '100%',
                   border: '1px solid var(--dark-border)',
-                  borderRadius: 'var(--radius)',
-                  padding: '28px 20px',
+                  boxShadow: 'var(--shadow-card)',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                  cursor: 'default'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.06)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = 'var(--shadow-card)'
                 }}
               >
                 <div
                   style={{
-                    fontFamily: 'Sora, sans-serif',
-                    fontWeight: 800,
-                    fontSize: 'clamp(2rem, 4vw, 2.8rem)',
-                    background: 'var(--gradient-primary)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    lineHeight: 1,
-                    marginBottom: '10px',
+                    background: 'rgba(79,70,229,0.08)',
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '24px',
                   }}
                 >
-                  {m.valor}
+                  <Icone size={28} color="var(--primary)" />
                 </div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{m.label}</div>
+                <h4
+                  style={{
+                    fontFamily: 'Outfit, sans-serif',
+                    fontWeight: 700,
+                    color: 'var(--text-dark)',
+                    fontSize: '1.25rem',
+                    marginBottom: '12px',
+                  }}
+                >
+                  {titulo}
+                </h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
+                  {descricao}
+                </p>
               </div>
             </div>
           ))}
-        </div>
 
-        <hr className="divider-line mb-5" />
-
-        {/* Diferenciais */}
-        <div className="row align-items-center g-5">
-          <div className="col-lg-5">
-            <span className="badge-custom mb-3 d-inline-block">Por que o NexaHub?</span>
-            <h2 className="section-title text-white">
-              A plataforma feita para{' '}
-              <span style={{ color: 'var(--accent)' }}>quem quer mais</span>
-            </h2>
-            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '2rem' }}>
-              Não somos só mais uma ferramenta. O NexaHub foi construído para ser o centro de operações digitais
-              da sua empresa, com simplicidade e poder ao mesmo tempo.
-            </p>
-            {[
-              'Sem contrato de longo prazo',
-              'Dados sempre seus, nunca vendidos',
-              'Atualizações automáticas incluídas',
-              'Conformidade com LGPD garantida',
-            ].map((item) => (
-              <div key={item} className="d-flex align-items-center gap-2 mb-2">
-                <CheckCircle size={18} color="var(--accent)" />
-                <span style={{ color: 'var(--text-light)', fontSize: '0.95rem' }}>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="col-lg-7">
-            <div className="row g-3">
-              {diferenciais.map(({ icone: Icone, titulo, descricao }) => (
-                <div key={titulo} className="col-12">
-                  <div
-                    style={{
-                      background: 'var(--gradient-card)',
-                      border: '1px solid var(--dark-border)',
-                      borderRadius: 'var(--radius)',
-                      padding: '24px',
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '18px',
-                      transition: 'border 0.2s',
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.border = '1px solid rgba(15,111,255,0.3)')
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.border = '1px solid var(--dark-border)')
-                    }
-                  >
-                    <div
-                      style={{
-                        background: 'rgba(15,111,255,0.12)',
-                        border: '1px solid rgba(15,111,255,0.2)',
-                        borderRadius: '10px',
-                        padding: '10px',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Icone size={22} color="var(--primary)" />
-                    </div>
-                    <div>
-                      <h4
-                        style={{
-                          fontFamily: 'Sora, sans-serif',
-                          fontWeight: 700,
-                          color: 'var(--white)',
-                          fontSize: '1rem',
-                          marginBottom: '6px',
-                        }}
-                      >
-                        {titulo}
-                      </h4>
-                      <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>{descricao}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

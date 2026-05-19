@@ -89,11 +89,11 @@ function ServicosSection({ abrirContato }) {
       : todosServicos.filter((s) => s.categoria === filtro)
 
   return (
-    <section id="servicos" style={{ background: 'var(--dark)' }}>
+    <section id="servicos" style={{ background: 'var(--bg-light)' }}>
       <div className="container">
         <div className="text-center mb-4">
           <span className="badge-custom mb-3 d-inline-block">Serviços</span>
-          <h2 className="section-title text-white">
+          <h2 className="section-title">
             Tudo que sua operação{' '}
             <span
               style={{
@@ -125,7 +125,7 @@ function ServicosSection({ abrirContato }) {
                 borderRadius: '50px',
                 padding: '8px 20px',
                 fontSize: '0.88rem',
-                fontFamily: 'Sora, sans-serif',
+                fontFamily: 'Outfit, sans-serif',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
