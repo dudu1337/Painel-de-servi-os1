@@ -1,4 +1,4 @@
-# NexaHub - Painel de Serviços Digitais
+# Lumina - Painel de Serviços Digitais
 
 Projeto desenvolvido para a atividade de React com Vite, componentização, responsividade e uso de Design System.
 
@@ -9,7 +9,7 @@ Projeto desenvolvido para a atividade de React com Vite, componentização, resp
 
 ## Descrição
 
-O **NexaHub** é uma plataforma fictícia de serviços digitais para empresas que desejam centralizar operações, integrações, automações e indicadores em uma interface moderna.
+O **Lumina** é uma plataforma fictícia de serviços digitais para empresas que desejam centralizar operações, integrações, automações e indicadores em uma interface moderna.
 
 A aplicação apresenta um painel responsivo com banner principal, cards de serviços filtráveis, seção de métricas, diferenciais da solução, modal de contato e footer com newsletter.
 
